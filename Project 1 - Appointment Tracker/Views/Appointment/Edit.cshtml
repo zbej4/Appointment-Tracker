@@ -1,0 +1,56 @@
+﻿@model Project_1___Appointment_Tracker.Models.Appointment
+@{
+    ViewBag.Title = "Updating Appointment: " + Model.Id;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<form method="post" action="/appointment/edit">
+    <div class="form-horizontal">
+
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group">
+            <label for="Description" class="control-label col-md-2">Description:</label>
+            <div class="col-md-10">
+                <input type="text" id="Description" name="Description" value="@Model.Description"
+                       class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Location" class="control-label col-md-2">Location:</label>
+            <div class="col-md-10">
+                <input type="text" id="Location" name="Location" value="@Model.Location"
+                       class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Date" class="control-label col-md-2">Appointment Date:</label>
+            <div class="col-md-10">
+                <input type="date" id="Date" name="Date" value="@Model.Date.ToString("yyyy-MM-dd")"
+                       class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="Time" class="control-label col-md-2">Appointment Time:</label>
+            <div class="col-md-10">
+                <input type="time" id="Time" name="Time" value="@Model.Time.ToString("HH:mm")"
+                       class="form-control" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save Changes" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a href="/home/index">Back to List</a>
+</div>

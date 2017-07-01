@@ -1,0 +1,54 @@
+﻿@model Project_1___Appointment_Tracker.Models.Appointment
+
+@{
+    ViewBag.Title = "Appointment " + Model.Id;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+
+<div>
+    <a href="/appointment/edit/@Model.Id">Edit Appointment</a> |
+    <a href="/appointment/delete/@Model.Id">Delete Appointment</a>
+</div>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Description:
+        </dt>
+
+        <dd>
+            @Model.Description
+        </dd>
+
+        <dt>
+            Location:
+        </dt>
+
+        <dd>
+            @Model.Location
+        </dd>
+
+        <dt>
+            Appointment Date:
+        </dt>
+
+        <dd>
+            @Model.Date.Date.ToString("MM/dd/yyyy")
+        </dd>
+
+        <dt>
+            Appointment Time:
+        </dt>
+
+        <dd>
+            @Model.Time.ToString("hh:mm tt")
+        </dd>
+
+    </dl>
+
+    <div>
+        <a href="/home/index">Back to List</a>
+    </div>
+</div>

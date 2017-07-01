@@ -1,0 +1,58 @@
+﻿@model IDictionary<string, Project_1___Appointment_Tracker.Models.Appointment>
+
+@{
+    ViewBag.Title = "Appointment List";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    <a href="/appointment/create">Create New Appointment</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Id
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Location
+        </th>
+        <th>
+            Appointment Date and Time
+        </th>
+        <th>
+            Time Remaining Until Appointment
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.Value.Id
+            </td>
+            <td>
+                @item.Value.Description
+            </td>
+            <td>
+                @item.Value.Location
+            </td>
+            <td>
+                @item.Value.Date.ToString("MM/dd/yyyy") @item.Value.Time.ToString("hh:mm tt")
+            </td>
+            <td>
+                @item.Value.TimeRemaining.Days Days : @item.Value.TimeRemaining.Hours Hours : @item.Value.TimeRemaining.Minutes Minutes : @item.Value.TimeRemaining.Seconds Seconds
+            </td>
+            <td>
+                <a href="/appointment/details/@item.Value.Id">Details</a> |
+                <a href="/appointment/edit/@item.Value.Id">Edit</a> |
+                <a href="/appointment/delete/@item.Value.Id">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>

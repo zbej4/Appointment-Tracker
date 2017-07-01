@@ -1,0 +1,54 @@
+﻿@model Project_1___Appointment_Tracker.Models.Appointment
+
+@{
+    ViewBag.Title = "Delete Appointment: " + Model.Id;
+}
+
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+
+<h3>Are you sure you want to delete this appointment?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Description:
+        </dt>
+
+        <dd>
+            @Model.Description
+        </dd>
+
+        <dt>
+            Location:
+        </dt>
+
+        <dd>
+            @Model.Location
+        </dd>
+
+        <dt>
+            Appointment Date:
+        </dt>
+
+        <dd>
+            @Model.Date.Date.ToString("MM/dd/yyyy")
+        </dd>
+
+        <dt>
+            Appointment Time:
+        </dt>
+
+        <dd>
+            @Model.Time.ToString("hh:mm tt")
+        </dd>
+
+    </dl>
+
+    <form method="post" action="/appointment/delete">
+        <div class="form-actions no-color">
+            <input type="hidden" name="id" value="@Model.Id" />
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a href="/home/index">Back to List</a>
+        </div>
+    </form>
+</div>
